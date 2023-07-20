@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-let DataSensor = new Schema({
+let dataStation = new Schema({
     topic: {
         type: String
     },
@@ -14,4 +14,4 @@ let DataSensor = new Schema({
 });
 
 // Export the model
-module.exports = mongoose.model('power_meter', DataSensor);
+module.exports = mongoose.model('datastation', dataStation);

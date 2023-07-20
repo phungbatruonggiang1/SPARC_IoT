@@ -1,5 +1,7 @@
 const mqtt = require('mqtt')
 const events = require('events');
+const dataStation = require('./data_schema');
+const mongoose = require('mongoose');
 emitter = new events.EventEmitter();
 
 var clients = [];
@@ -29,7 +31,6 @@ mqttConfig.map(config => {
 })
 
 
-
 clients.map(client => {
     client.on('message', function (topic, message, packet) {
         try{
@@ -41,6 +42,24 @@ clients.map(client => {
         }
     });
 })
+
+// Connecting to the database
+mongoose
+  .connect('mongodb://103.1.238.170:27017/airsense', {
+    user: 'mqttsparclab',
+    pass: 'airsense',
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log('Successfully connected to the database')
+  })
+  .catch(err => {
+    console.log('Could not connect to the database. Exiting now...', err)
+  })
+
+// save data in mongodb database
+
 
 
 
