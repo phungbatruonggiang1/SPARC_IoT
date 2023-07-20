@@ -1,0 +1,16 @@
+{
+  "name": "mqtt-subcriber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "events": "^3.3.0",
+    "mongoose": "^7.4.0",
+    "mqtt": "^4.3.7"
+  }
+}
